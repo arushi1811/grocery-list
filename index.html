@@ -10,19 +10,37 @@
 <body>
     <h1>Grocery List</h1>
     <div class="add">
-        <input type="text" placeholder="Please enter a grocery here" id="add-grocery">
-        <button >ADD</button>
+        <input type="text" placeholder="Please enter a grocery here" id="add-grocery" >
+        <button onclick="clickHandler()">ADD</button>
     </div>
     <section class="grocery">
-        <ol>
-            <li>Apple</li>
-            <li>Orange</li>
+        <ol id="g-list">
+            <li onclick="done(this)">Apple</li>
+            <li onclick="done(this)">Orange</li>
         </ol>
     </section>
 
-    <script>
-        let li = document.getElementsByTagName("li")
-        console.log(li)
+    <script >
+        function clickHandler() {
+            let toadd = document.querySelector("#add-grocery").value
+            
+            let li = document.createElement("li")
+            // ............ put attribute stuff in here
+            
+            let txt = document.createTextNode(toadd)
+            li.appendChild(txt)
+
+
+            let list = document.querySelector("ol")
+            list.appendChild(li)
+
+            
+        }
+
+        function done(li) {
+            console.log(li)
+            li.style.textDecoration = "line-through"
+        }
     </script>
 </body>
 </html>

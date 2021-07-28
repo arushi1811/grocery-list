@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Grocery List</h1>
+    <button onclick="changecolor()">Change Background Color!</button>
     <div class="add">
         <input type="text" placeholder="Please enter a grocery here" id="add-grocery" >
         <button onclick="clickHandler()">ADD</button>
@@ -21,12 +22,18 @@
     </section>
 
     <script >
+        //function to change background color of each li tag
+        function changecolor() {
+
+        }
+
+        //function that handles the click to add an item to grocery list
         function clickHandler() {
             let toadd = document.querySelector("#add-grocery").value
             
             let li = document.createElement("li")
-            // ............ put attribute stuff in here
-            
+            li.setAttribute("onclick", "done(this)")
+
             let txt = document.createTextNode(toadd)
             li.appendChild(txt)
 
@@ -37,6 +44,7 @@
             
         }
 
+        //function that crosses of any li tag that is clicked on
         function done(li) {
             console.log(li)
             li.style.textDecoration = "line-through"
